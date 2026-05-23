@@ -19,10 +19,9 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     // ✅ create socket INSIDE useEffect so listeners register in time
-    socketRef.current = io("http://localhost:5000", {
-      transports: ["websocket", "polling"],
-    });
-
+   socketRef.current = io(process.env.REACT_APP_SERVER_URL || "http://localhost:5000", {
+  transports: ["websocket", "polling"],
+});
     socketRef.current.on("connect", () => {
       console.log("✅ Socket connected:", socketRef.current.id);
     });
