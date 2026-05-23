@@ -10,6 +10,7 @@ const VideoPlayer = () => {
     if (myVideo.current && stream) {
       myVideo.current.srcObject = stream;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stream]);
 
   return (
